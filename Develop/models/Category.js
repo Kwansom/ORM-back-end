@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require("sequelize");
 
 const sequelize = require("../config/connection.js");
+const Product = require("./Product.js"); // Import Product model
 
 class Category extends Model {}
 
@@ -27,5 +28,7 @@ Category.init(
     modelName: "category",
   }
 );
+
+
 
 module.exports = Category;

@@ -2,6 +2,9 @@ const { Model, DataTypes } = require("sequelize");
 
 const sequelize = require("../config/connection.js");
 
+const Product = require("./Product.js"); // Import Product model
+const ProductTag = require("./ProductTag.js"); // Import ProductTag model
+
 class Tag extends Model {}
 
 Tag.init(
@@ -25,5 +28,7 @@ Tag.init(
     modelName: "tag",
   }
 );
+
+
 
 module.exports = Tag;
