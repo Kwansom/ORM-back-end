@@ -27,7 +27,7 @@ Product.init(
       type: DataTypes.DECIMAL,
       allowNull: false,
       validate: {
-        isDeceimal: true, // validates that the value is a decimal
+        isDecimal: true, // validates that the value is a decimal
       },
     },
     stock: {
@@ -44,7 +44,6 @@ Product.init(
         model: "category", //References 'category' model, foreign key refers to the 'id' of the category model
         key: "id",
       },
-      allowNull: false,
     },
   },
   {
@@ -55,6 +54,5 @@ Product.init(
     modelName: "product",
   }
 );
-
 
 module.exports = Product;
