@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
       {
         model: Product,
         through: ProductTag, // using join table to link
-        as: "tags",
+        as: "products",
         attributes: ["id", "product_name", "price", "stock"],
       },
     ],
@@ -36,7 +36,7 @@ router.get("/:id", (req, res) => {
       {
         model: Product,
         through: ProductTag,
-        as: "tag",
+        as: "products",
         attributes: ["id", "product_name", "price", "stock"],
       },
     ],
@@ -55,11 +55,13 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/", (req, res) => {
+  // console.log("Request Body:", req.body);
   // create a new tag
   Tag.create({
-    name: req.body.name, // tag name passed in the request body
+    tag_name: req.body.tag_name, // tag name passed in the request body
   })
     .then((tagData) => {
+      // console.log("Created Tag Data:", tagData);
       // return created tag data as JSON
       res.json(tagData);
     })
@@ -73,7 +75,7 @@ router.put("/:id", (req, res) => {
   // update a tag's name by its `id` value
   Tag.update(
     {
-      name: req.body.name,
+      tag_name: req.body.tag_name,
     },
     {
       where: {

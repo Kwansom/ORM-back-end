@@ -18,6 +18,7 @@ Tag.init(
     },
     tag_name: {
       type: DataTypes.STRING,
+      field: "tag_name",
     },
   },
   {
@@ -28,7 +29,5 @@ Tag.init(
     modelName: "tag",
   }
 );
-
-
 
 module.exports = Tag;
